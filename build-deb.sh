@@ -35,4 +35,8 @@ done
 
 sed -i "/Version:/c\Version: $2" $OUT_DIR/DEBIAN/control
 
+chown root:root $OUT_DIR/usr/lib/chromium-browser/chrome-sandbox
+chmod 4755 $OUT_DIR/usr/lib/chromium-browser/chrome-sandbox
+chown root:root $OUT_DIR/*
+
 dpkg-deb --build $OUT_DIR
