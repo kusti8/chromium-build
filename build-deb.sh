@@ -17,7 +17,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 OUT_DIR=$1
-LIB_DIR=$OUTDIR/usr/lib/arm-linux-gnueabihf
+LIB_DIR=$OUT_DIR/usr/lib/arm-linux-gnueabihf
 LIBFFMPEG=libffmpeg_chrome.so.55
 
 wget https://github.com/kusti8/chromium-build/blob/master/chromium-browser_55.tar.gz?raw=true -O chromium.tar.gz
