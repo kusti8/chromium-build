@@ -20,7 +20,7 @@ OUT_DIR=$1
 LIB_DIR=$OUT_DIR/usr/lib/arm-linux-gnueabihf
 LIBFFMPEG=libffmpeg_chrome.so.56
 
-wget https://github.com/kusti8/chromium-build/blob/master/chromium-browser_56.tar.gz?raw=true -O chromium.tar.gz
+wget https://github.com/kusti8/chromium-build/blob/master/chromium_56.tar.gz?raw=true -O chromium.tar.gz
 tar xvf chromium.tar.gz
 mv chromium-browser_51.0.2704.91-0ubuntu0.14.04.1.6001 $OUT_DIR
 
