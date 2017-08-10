@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## BUILDING SHOULD BE FOR chrome, chrome_sandbox and pdf targets:
-## ninja -C out/Release chrome chrome_sandbox pdf
+## ninja -C out/Release chrome chrome_sandbox
 
-OUT_FILES="catalog chromium-browser chrome_100_percent.pak chrome_200_percent.pak chrome_material_100_percent.pak chrome_material_200_percent.pak chrome-sandbox content_browser_manifest.json content_renderer_manifest.json content_resources.pak icudtl.dat keyboard_resources.pak libs libyuv.a locales natives_blob.bin pseudo_locales resources.pak snapshot_blob.bin xdg-mime xdg-settings *.so *.pak nacl_helper_bootstrap nacl_helper_nonsfi nacl_irt_arm.nexe"
+OUT_FILES="catalog chromium-browser chrome_100_percent.pak chrome_200_percent.pak chrome_material_100_percent.pak chrome_material_200_percent.pak chrome-sandbox content_browser_manifest.json content_renderer_manifest.json content_resources.pak icudtl.dat keyboard_resources.pak libs libyuv.a locales natives_blob.bin pseudo_locales resources.pak snapshot_blob.bin xdg-mime xdg-settings *.so *.pak nacl_helper_bootstrap nacl_helper_nonsfi nacl_irt_arm.nexe resources"
 
 if [ "$2" == "" ]; then
   echo "Usage: $0 deb_name version"
@@ -18,7 +18,11 @@ fi
 
 OUT_DIR=$1
 LIB_DIR=$OUT_DIR/usr/lib/arm-linux-gnueabihf
-LIBFFMPEG=libffmpeg_chrome.so.56
+LIBFFMPEG=libffmpeg_chrome.so.60
+
+if [ -d "$OUT_DIR" ]; then
+  rm -rf "$OUT_DIR"
+fi
 
 wget https://github.com/kusti8/chromium-build/blob/master/chromium_56.tar.gz?raw=true -O chromium.tar.gz
 tar xvf chromium.tar.gz
